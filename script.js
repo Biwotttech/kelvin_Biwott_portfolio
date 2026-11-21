@@ -36,3 +36,76 @@ if (contactForm) {
     window.location.href = `mailto:biwott.tech@gmail.com?subject=${subject}&body=${body}`;
   });
 }
+// Inline CV Preview Dropdown
+
+const cvToggle = document.getElementById("cv-dropdown-toggle");
+const cvPreview = document.getElementById("cv-preview");
+const cvClose = document.getElementById("cv-close");
+const cvArrow = document.getElementById("cv-arrow");
+
+if (cvToggle && cvPreview && cvClose) {
+
+  // Open and toggle CV preview
+  cvToggle.addEventListener("click", function () {
+
+    const isOpen = !cvPreview.hidden;
+
+    cvPreview.hidden = isOpen;
+
+    cvToggle.setAttribute("aria-expanded", !isOpen);
+
+    if (cvArrow) {
+      cvArrow.textContent = isOpen ? "⌄" : "⌃";
+    }
+
+  });
+
+  // Close CV preview
+  cvClose.addEventListener("click", function () {
+
+    cvPreview.hidden = true;
+
+    cvToggle.setAttribute("aria-expanded", "false");
+
+    if (cvArrow) {
+      cvArrow.textContent = "⌄";
+    }
+
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", function (event) {
+
+    if (!cvPreview.contains(event.target) &&
+        !cvToggle.contains(event.target)) {
+
+      cvPreview.hidden = true;
+
+      cvToggle.setAttribute("aria-expanded", "false");
+
+      if (cvArrow) {
+        cvArrow.textContent = "⌄";
+      }
+
+    }
+
+  });
+
+  // Close using Escape key
+  document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape") {
+
+      cvPreview.hidden = true;
+
+      cvToggle.setAttribute("aria-expanded", "false");
+
+      if (cvArrow) {
+        cvArrow.textContent = "⌄";
+      }
+
+    }
+
+  });
+
+}

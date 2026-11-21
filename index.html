@@ -69,26 +69,54 @@
 
           <div class="hero-actions">
 
-            <a class="button button-primary" href="#projects">
-              Explore my work <span aria-hidden="true">↗</span>
-            </a>
+  <a class="button button-primary" href="#projects">
+    Explore my work <span aria-hidden="true">↗</span>
+  </a>
 
-            <!-- View CV -->
-            <a class="button button-secondary"
-               href="Kelvin_CV.pdf"
-               target="_blank"
-               rel="noopener noreferrer">
-              View CV <span aria-hidden="true">↗</span>
-            </a>
+  <!-- Inline CV Preview Dropdown -->
+  <div class="cv-dropdown">
 
-            <a class="button button-secondary"
-               href="https://github.com/Biwotttech"
-               target="_blank"
-               rel="noopener noreferrer">
-              GitHub Profile
-            </a>
+    <button class="button button-secondary"
+            id="cv-dropdown-toggle"
+            aria-expanded="false"
+            aria-controls="cv-preview">
+      View CV <span id="cv-arrow">⌄</span>
+    </button>
 
-          </div>
+    <div class="cv-preview" id="cv-preview" hidden>
+
+      <div class="cv-preview-header">
+        <strong>Kelvin Biwott Mutai — CV</strong>
+
+        <div class="cv-preview-actions">
+          <a href="Kelvin_CV.pdf" download>
+            Download
+          </a>
+
+          <button type="button" id="cv-close">
+            Close ✕
+          </button>
+        </div>
+      </div>
+
+      <iframe
+        src="Kelvin_CV.pdf"
+        title="Kelvin Biwott CV Preview"
+        class="cv-frame">
+      </iframe>
+
+    </div>
+
+  </div>
+
+  <a class="button button-secondary"
+     href="https://github.com/Biwotttech"
+     target="_blank"
+     rel="noopener noreferrer">
+    GitHub Profile
+  </a>
+
+</div>
 
           <div class="hero-meta">
             <span>ICT Support</span>
